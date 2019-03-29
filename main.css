@@ -1,0 +1,13 @@
+body {
+    background-color: antiquewhite;
+}
+
+.content {
+    display: block;
+    position: relative;
+    transform: translateX(-50%);
+    left: 50%;
+    width: 80%;
+    padding: 10%;
+    background-color: white;
+}
