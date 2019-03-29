@@ -9,10 +9,19 @@
 
     <div class="content">
         <h1>Emotion Project</h1>
-        <button onclick="onButtonClick">click to retrive bluetooth info</button>
+        <button>Get Bluetooth Device's Battery Level</button>
         <p>This is a web recording Emotions</p>
         <p>Group members: Gu, Marike, Ayushi, Lotte<p>
         <p>All rights researved by ITD Group 10 © 2019</p>
     </div>
+    
+    <script>
+  document.querySelector('button').addEventListener('click', function() {
+    if (isWebBluetoothEnabled()) {
+      ChromeSamples.clearLog();
+      onButtonClick();
+    }
+  });
+</script>
 </body>
 </html>
