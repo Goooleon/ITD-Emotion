@@ -1,38 +1,26 @@
 function onButtonClick() {
-  let filters = [];
-
-  let filterService = document.querySelector('#service').value;
-  if (filterService.startsWith('0x')) {
-    filterService = parseInt(filterService);
-  }
-  if (filterService) {
-    filters.push({services: [filterService]});
-  }
-
-  let filterName = document.querySelector('#name').value;
-  if (filterName) {
-    filters.push({name: filterName});
-  }
-
-  let filterNamePrefix = document.querySelector('#namePrefix').value;
-  if (filterNamePrefix) {
-    filters.push({namePrefix: filterNamePrefix});
-  }
-
-  let options = {};
-  if (document.querySelector('#allDevices').checked) {
-    options.acceptAllDevices = true;
-  } else {
-    options.filters = filters;
-  }
-
   log('Requesting Bluetooth Device...');
-  log('with ' + JSON.stringify(options));
-  navigator.bluetooth.requestDevice(options)
+  navigator.bluetooth.requestDevice(
+    {filters: [{services: ['battery_service']}]})
   .then(device => {
-    log('> Name:             ' + device.name);
-    log('> Id:               ' + device.id);
-    log('> Connected:        ' + device.gatt.connected);
+    log('Connecting to GATT Server...');
+    return device.gatt.connect();
+  })
+  .then(server => {
+    log('Getting Battery Service...');
+    return server.getPrimaryService('battery_service');
+  })
+  .then(service => {
+    log('Getting Battery Level Characteristic...');
+    return service.getCharacteristic('battery_level');
+  })
+  .then(characteristic => {
+    log('Reading Battery Level...');
+    return characteristic.readValue();
+  })
+  .then(value => {
+    let batteryLevel = value.getUint8(0);
+    log('> Battery Level is ' + batteryLevel + '%');
   })
   .catch(error => {
     log('Argh! ' + error);
