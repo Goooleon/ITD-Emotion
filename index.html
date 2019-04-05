@@ -1,27 +1,91 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <link rel="stylesheet" href="main.css">    
-    <script src="bluetooth.js"></script>>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emotion Regulation</title>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 </head>
     
 <body>
-
-    <div class="content">
-        <h1>Emotion Project</h1>
-        <button>Get Bluetooth Device's Battery Level</button>
-        <p>This is a web recording Emotions</p>
-        <p>Group members: Gu, Marike, Ayushi, Lotte<p>
-        <p>All rights researved by ITD Group 10 © 2019</p>
+    
+    <div class="container">
+    <div class="head"></div>
     </div>
     
-    <script>
-  document.querySelector('button').addEventListener('click', function() {
-    if (isWebBluetoothEnabled()) {
-      ChromeSamples.clearLog();
-      onButtonClick();
-    }
-  });
+    
+    
+        <div class="nav">
+        <ul>
+            <li id="emotion-1"><div id="emo-color-1"></div></li>
+            <li id="emotion-2"><div id="emo-color-2"></div></li>
+            <li id="emotion-3"><div id="emo-color-3"></div></li>
+            <li id="emotion-4"><div id="emo-color-4"></div></li>
+            <li id="emotion-5"><div id="emo-color-5"></div></li>
+            <li id="emotion-6"><div id="emo-color-6"></div></li>
+        </ul>
+        </div>
+    
+    
+    <div class="content">
+        
+        <h1 id="greeting">How do you feel today?</h1>
+        <p id="time"></p>
+        <p id="time-2"></p>
+        <p id="time-3"></p>
+        <p id="time-4"></p>
+        <p id="time-5"></p>
+        
+        <p id="test-append"></p>
+    </div>
+
+    
+    
+<script>
+    $(document).ready(function(){
+        
+    var dNow = new Date();
+    var utc = new Date(dNow.getTime() + dNow.getTimezoneOffset() * 60000)
+    var utcdate= (utc.getMonth()+1) + '/' + utc.getDate() + '/' + utc.getFullYear() + ' ' + (utc.getHours() + 2) + ':' + utc.getMinutes();
+        
+      $("#emotion-1").click(function(){
+        $("#test-append").prepend('<div id="h">Hopeful </div>');
+          $("#test-append").prepend(utcdate);
+          $("#greeting").hide();
+      });
+        
+      $("#emotion-2").click(function(){
+        $("#test-append").prepend('<div id="c">Curious</div>');   
+        $("#test-append").prepend(utcdate);
+      });
+        
+      $("#emotion-3").click(function(){
+        $("#test-append").prepend('<div id="j">Joy</div>');  
+        $("#test-append").prepend(utcdate);
+      });
+        
+      $("#emotion-4").click(function(){
+        $("#test-append").prepend('<div id="f">Frustration</div>');   
+         $("#test-append").prepend(utcdate);
+      });
+        
+      $("#emotion-5").click(function(){
+        $("#test-append").prepend('<div id="a">Angry</div>');   
+        $("#test-append").prepend(utcdate);
+      });
+
+      $("#emotion-6").click(function(){
+        $("#test-append").prepend('<div id="s">Sad</div>');   
+       $("#test-append").prepend(utcdate);
+      });
+        
+        
+    });
+
 </script>
+    
+    
 </body>
 </html>
