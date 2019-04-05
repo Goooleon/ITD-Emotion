@@ -38,7 +38,7 @@ body {
 
 h1 {
     color: white;
-    font-size: 4em;
+    font-size: 3.5em;
     font-weight: 700;
 }
 
@@ -106,14 +106,43 @@ li {
 }
 
 #h, #c, #j, #f, #a, #s {
+    display: block;
+    position: relative;
+    float: right;
     color: white;
-    margin: 20px 0 20px 0;
-    width: 80%;
+    width: 100%;
     height: 60px;
     font-size: 1.5em;
     text-align: center;
     line-height: 60px;
     border-radius: 6px;
+}
+
+.mood {
+    display: block;
+    position: relative;
+    height: 60px;
+    width: 100%;
+    margin: 20px 0 20px 0;
+}
+
+
+.circle {
+    display: block;
+    position: absolute;
+    top: 25px;
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    background-color: white;
+}
+
+
+
+.right{
+    width: 100%;
+    position: absolute;
+    right: 0;
 }
 
 

@@ -31,7 +31,7 @@
     
     <div class="content">
         
-        <h1 id="greeting">How do you feel today?</h1>
+        <h1 id="greeting">Hi, there <br><br>How do you feel today?</h1>
         <p id="time"></p>
         <p id="time-2"></p>
         <p id="time-3"></p>
@@ -43,6 +43,9 @@
 
     
     
+    
+    
+    
 <script>
     $(document).ready(function(){
         
@@ -51,34 +54,39 @@
     var utcdate= (utc.getMonth()+1) + '/' + utc.getDate() + '/' + utc.getFullYear() + ' ' + (utc.getHours() + 2) + ':' + utc.getMinutes();
         
       $("#emotion-1").click(function(){
-        $("#test-append").prepend('<div id="h">Hopeful </div>');
+        $("#test-append").prepend('<div class="mood"><div class="left"><div class="circle"></div><div class="line"></div></div><div class="right"><div id="h">Hopeful </div></div></div>');
           $("#test-append").prepend(utcdate);
           $("#greeting").hide();
       });
         
       $("#emotion-2").click(function(){
-        $("#test-append").prepend('<div id="c">Curious</div>');   
-        $("#test-append").prepend(utcdate);
+        $("#test-append").prepend('<div class="mood"><div class="left"><div class="circle"></div><div class="line"></div></div><div class="right"><div id="c">Curious</div></div></div>');   
+          $("#test-append").prepend(utcdate);
+          $("#greeting").hide();
       });
         
       $("#emotion-3").click(function(){
-        $("#test-append").prepend('<div id="j">Joy</div>');  
-        $("#test-append").prepend(utcdate);
+        $("#test-append").prepend('<div class="mood"><div class="left"><div class="circle"></div><div class="line"></div></div><div class="right"><div id="j">Joy</div></div></div>');  
+          $("#test-append").prepend(utcdate);
+          $("#greeting").hide();
       });
         
       $("#emotion-4").click(function(){
-        $("#test-append").prepend('<div id="f">Frustration</div>');   
-         $("#test-append").prepend(utcdate);
+        $("#test-append").prepend('<div class="mood"><div class="left"><div class="circle"></div><div class="line"></div></div><div class="right"><div id="f">Frustrated</div></div></div>');   
+          $("#test-append").prepend(utcdate);
+          $("#greeting").hide();
       });
         
       $("#emotion-5").click(function(){
-        $("#test-append").prepend('<div id="a">Angry</div>');   
-        $("#test-append").prepend(utcdate);
+        $("#test-append").prepend('<div class="mood"><div class="left"><div class="circle"></div><div class="line"></div></div><div class="right"><div id="a">Angry</div></div></div>'); 
+          $("#test-append").prepend(utcdate);
+          $("#greeting").hide();
       });
 
       $("#emotion-6").click(function(){
-        $("#test-append").prepend('<div id="s">Sad</div>');   
-       $("#test-append").prepend(utcdate);
+        $("#test-append").prepend('<div class="mood"><div class="left"><div class="circle"></div><div class="line"></div></div><div class="right"><div id="s">Sad</div></div></div>'); 
+          $("#test-append").prepend(utcdate);
+          $("#greeting").hide();
       });
         
         
